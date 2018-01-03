@@ -2,6 +2,7 @@ fileURL <-
     "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
 zipfilename <- file.path(getwd(), "household_power_consumption.zip")
 filename <- file.path(getwd(), "household_power_consumption.txt")
+plotimage <- file.path(getwd(), "plot1.png")
 
 ## Download and unzip the dataset:
 if (!file.exists(filename)) {
@@ -58,7 +59,7 @@ data <- cbind(dateTime, data)
 
 ## Format dateTime Column
 data$dateTime <- as.POSIXct(dateTime)
-png("plot1.png", width = 480, height = 480)
+png(plotimage, width = 480, height = 480)
 with(
     data,
     hist(
